@@ -84,7 +84,7 @@ export default function Home() {
           {portfolio.tokens.length > 0 && (
             <div>
               <h2 className="font-semibold mb-2">Tokens ({portfolio.tokens.length})</h2>
-              <ul className="space-y-2">
+              <ul className="space-y-1 list-none pl-0">
                 {portfolio.tokens.map((t: any) => {
                   const info = t.token_info ?? {};
                   const amount = (info.balance ?? 0) / 10 ** (info.decimals ?? 0);
@@ -93,7 +93,7 @@ export default function Home() {
                       <img
                         src={t.content?.links?.image ?? ""}
                         alt=""
-                        className="w-8 h-8 rounded-full bg-zinc-200"
+                        className="w-8 h-8 rounded-full bg-zinc-200 shrink-0"
                       />
                       <span className="flex-1 truncate">
                         {t.content?.metadata?.name ?? info.symbol ?? "Unknown token"}
@@ -129,7 +129,7 @@ export default function Home() {
       {history.length > 0 && (
         <section>
           <h2 className="font-semibold mb-2">History</h2>
-          <ul className="font-mono text-sm space-y-1">
+          <ul className="font-mono text-sm space-y-1 list-none pl-0">
             {history.map((tx) => (
               <li key={tx.signature}>
                 {tx.err ? "❌" : "✅"} {tx.signature.slice(0, 16)}…
@@ -142,7 +142,7 @@ export default function Home() {
       {live.length > 0 && (
         <section>
           <h2 className="font-semibold mb-2">Live ⚡</h2>
-          <ul className="font-mono text-sm space-y-1">
+          <ul className="font-mono text-sm space-y-1 list-none pl-0">
             {live.map((e, i) => (
               <li key={i}>{e.signature.slice(0, 16)}…</li>
             ))}
